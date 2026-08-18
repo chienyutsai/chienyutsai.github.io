@@ -1,35 +1,212 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="zh-TW">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>profile</title>
-        <link href="https://jsdelivr.net" rel="stylesheet">
-        <style>
-            body {
-                background-color: #d3cdbd;
-                color: #2D2B2A; /* 深炭灰文字 */
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-                line-height: 1.6;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人作品集 & 履歷</title>
+    <!-- 引入 Bootstrap 樣式庫 -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <style>
+        /* 1. 最外層：套用你選的舒服米色背景，並讓大方框居中 */
+        body { 
+            background-color: #ded9d0; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
         }
-            .main-box {
-                width: 700px;
-                min-height: 400px;
-                margin: 100px auto;
-                padding: 40px;
 
-                background-color: white;
-                border-radius: 20px;
+        /* 2. 中間大的長方形圓框 */
+        .resume-container {
+            background-color: #ffffff;
+            border-radius: 20px; /* 圓角效果 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            width: 100%;
+            max-width: 1000px; /* 最大寬度控制 */
+            height: 650px; /* 固定高度，讓整體排版像精美的軟體介面 */
+            display: flex; /* 讓左右兩邊並排 */
+            overflow: hidden; /* 防止內部元件超出圓角 */
+        }
 
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            }
-        </style>
-    </head>
-    <body>
-            <p>test</p>
-    </body>
+        /* 3. 左半邊：側邊欄 */
+        .sidebar {
+            width: 250px; /* 固定側邊欄寬度 */
+            min-width: 250px; /* 👇 加上這行：強制最低寬度 */
+            flex-shrink: 0;   /* 👇 加上這行：嚴禁被右邊的內容擠壓縮小 */
+            background-color: #f8f9fa; /* 稍微帶點淺灰，與右邊純白做出區隔 */
+            border-right: 1px solid #e9ecef; /* 分隔線 */
+            padding: 30px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 左上角圓形大頭貼 */
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* 變成正圓形 */
+            background-color: #cbd5e1; /* 沒放圖片前的預設灰色 */
+            margin-bottom: 30px;
+            background-image: url('你的大頭貼網址.jpg'); /* 之後可以換成你的照片 */
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* 左邊直立式按鈕清單 */
+        .menu-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-btn {
+            width: 100% !important;
+            background: transparent;
+            border: none;
+            padding: 14px 25px;
+            text-align: left; /* 文字靠左對齊 */
+            font-size: 1rem;
+            color: #4a4a4a;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 4px solid transparent; /* 未選中時左邊透明 */
+
+            display: flex;
+            align-items: center;
+            gap: 10px; /* 圖示和文字的間距 */
+        }
+
+        /* 按鈕滑過與選中時的效果 */
+        .menu-btn:hover, .menu-btn.active {
+            background-color: #ede9e1; /* 滑過時變深一點的米色 */
+            color: #1a1a1a;
+            font-weight: bold;
+            border-left: 4px solid #55514a; /* 選中時左邊出現一條深色粗線 */
+        }
+
+        /* 4. 右半邊：內容顯示區塊 */
+        .content-area {
+            flex-grow: 1; /* 自動填滿剩餘寬度 */
+            padding: 40px;
+            overflow-y: auto; /* 如果內容太多，右邊會自己出現滾動條 */
+            background-color: #ffffff;
+        }
+
+        /* 控制右邊內容的顯示與隱藏 */
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 中間大的長方形圓框 -->
+    <div class="resume-container">
+        
+        <!-- 左半邊：大頭貼、按鈕列 -->
+        <aside class="sidebar">
+            <!-- 圓形大頭貼 -->
+            <div class="avatar"></div>
+            
+            <!-- 按鈕清單 -->
+            <div class="menu-list">
+                <button class="menu-btn active" onclick="switchContent('about')">👨‍💻 關於我</button>
+                <button class="menu-btn" onclick="switchContent('project1')">🤖 專題</button>
+                <button class="menu-btn" onclick="switchContent('skills')">🛠️ 核心技能</button>
+                <button class="menu-btn" onclick="switchContent('contact')">✉️ 聯絡方式</button>
+            </div>
+        </aside>
+
+        <!-- 右半邊：按下按鈕後對應的內容 -->
+        <main class="content-area">
+            
+            <!-- 內容一：關於我 -->
+            <section id="about" class="content-section active">
+                <h2 class="fw-bold mb-3">👨‍💻 關於我</h2>
+                <hr class="mb-4">
+                <p class="lead">你好！我是 [你的名字]。</p>
+                <p>這裡可以寫你的簡短自我介紹。例如：畢業於某某科系，專長是 Python 後端開發與機器學習模型訓練。熱衷於將 AI 技術整合進 Web 系統中，解決實際生活中的問題...</p>
+            </section>
+
+            <!-- 內容二：Django 專題 -->
+            <section id="project1" class="content-section">
+                <h2 class="fw-bold mb-3">🤖 智慧預測 Web 專題</h2>
+                <p class="text-muted mb-4">前後端整合 Django 框架，並導入 AI 預測模型提供即時數據分析。</p>
+                
+                <!-- YouTube 響應式影片播放器 -->
+                <div class="ratio ratio-16x9 mb-4 shadow-sm" style="border-radius: 8px; overflow: hidden;">
+                    <!-- ⚠️ 記得把 '你的影片ID' 換掉 -->
+                    <iframe src="https://youtu.be/4LzGC4gMEkE" title="專題展示影片" allowfullscreen></iframe>
+                </div>
+
+                <!-- 精準時間軸引導按鈕 -->
+                <div class="p-3 bg-light rounded mb-4" style="font-size: 0.9rem;">
+                    <span class="fw-bold d-block mb-2" style="color: #475569;">⚡ 技術快速導覽：</span>
+                    <!-- ⚠️ 記得換掉影片ID與秒數 -->
+                    <a href="https://youtu.be/4LzGC4gMEkE" target="_blank" class="btn btn-sm btn-outline-secondary me-2">🎬 0:00 網頁功能</a>
+                    <a href="https://youtu.be/4LzGC4gMEkE" target="_blank" class="btn btn-sm btn-primary">🧠 2:30 AI 模型展示</a>
+                </div>
+
+                <!-- 相關連結 -->
+                <div class="mt-3">
+                    🔗 <a href="你的Render網址" target="_blank" class="fw-bold text-decoration-none">點此親自體驗線上網站</a>
+                    <span class="text-muted small ms-2">(⚠️ 免費主機初次開啟需等待約 1 分鐘)</span>
+                    <br>
+                    💻 <a href="你的GitHub專案網址" target="_blank" class="text-decoration-none text-secondary">瀏覽專案原始碼 (GitHub)</a>
+                </div>
+            </section>
+
+            <!-- 內容三：核心技能 -->
+            <section id="skills" class="content-section">
+                <h2 class="fw-bold mb-3">🛠️ 核心技能</h2>
+                <hr class="mb-4">
+                <h5 class="fw-bold">後端開發</h5>
+                <p>Python, Django, Flask, RESTful API 設計</p>
+                <h5 class="fw-bold mt-3">資料庫</h5>
+                <p>PostgreSQL, MySQL</p>
+                <h5 class="fw-bold mt-3">人工智能 / 資料科學</h5>
+                <p>Machine Learning, Scikit-learn, 資料預處理與特徵工程</p>
+            </section>
+
+            <!-- 內容四：聯絡方式 -->
+            <section id="contact" class="content-section">
+                <h2 class="fw-bold mb-3">✉️ 聯絡方式</h2>
+                <hr class="mb-4">
+                <p>📧 <strong>Email：</strong> your-email@example.com</p>
+                <p>🔗 <strong>GitHub：</strong> <a href="https://github.com" target="_blank">://github.com</a></p>
+                <p>💼 <strong>LinkedIn：</strong> <a href="#" target="_blank">你的領英連結</a></p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- 負責切換內容的 JavaScript -->
+    <script>
+        function switchContent(sectionId) {
+            // 1. 隱藏右邊所有內容區塊
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // 2. 移除左邊所有按鈕的選取狀態
+            document.querySelectorAll('.menu-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // 3. 顯示目前點擊的右邊內容
+            document.getElementById(sectionId).classList.add('active');
+            // 4. 將當前點擊的左邊按鈕設為選取狀態
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
 </html>
