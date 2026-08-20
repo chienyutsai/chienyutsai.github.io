@@ -7,7 +7,7 @@
     <!-- 引入 Bootstrap 樣式庫 -->
     <link href="https://jsdelivr.net" rel="stylesheet">
     <style>
-        /* 1. 最外層：套用你選的舒服米色背景，並讓大方框居中 */
+        /* 1. 最外層 */
         body { 
             background-color: #ded9d0; 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -26,15 +26,15 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.06);
             width: 100%;
             max-width: 1000px; /* 最大寬度控制 */
-            height: 650px; /* 固定高度，讓整體排版像精美的軟體介面 */
+            height: 750px; /* 固定高度，讓整體排版像精美的軟體介面 */
             display: flex; /* 讓左右兩邊並排 */
             overflow: hidden; /* 防止內部元件超出圓角 */
         }
 
         /* 3. 左半邊：側邊欄 */
         .sidebar {
-            width: 250px; /* 固定側邊欄寬度 */
-            min-width: 250px; /* 👇 加上這行：強制最低寬度 */
+            width: 225px; /* 固定側邊欄寬度 */
+            min-width: 225px; /* 👇 加上這行：強制最低寬度 */
             flex-shrink: 0;   /* 👇 加上這行：嚴禁被右邊的內容擠壓縮小 */
             background-color: #f8f9fa; /* 稍微帶點淺灰，與右邊純白做出區隔 */
             border-right: 1px solid #e9ecef; /* 分隔線 */
@@ -50,12 +50,22 @@
             height: 100px;
             border-radius: 50%; /* 變成正圓形 */
             background-color: #cbd5e1; /* 沒放圖片前的預設灰色 */
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             background-image: url('你的大頭貼網址.jpg'); /* 之後可以換成你的照片 */
             background-size: cover;
             background-position: center;
             border: 3px solid #ffffff;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* 名字的字體與上下間距 */
+        .user-name {
+            font-size: 1.15rem;      /* 字體大小 */
+            font-weight: 600;        /* 稍微加粗，看起來比較像標題 */
+            color: #212529;          /* 深灰色字體 */
+            margin-top: 0;           /* 清除上方預設間距 */
+            margin-bottom: 20px;     /* 👈 調整這裡：控制名字與下方「第一個按鈕」的距離 */
+            text-align: center;      /* 文字置中 */
         }
 
         /* 左邊直立式按鈕清單 */
@@ -106,6 +116,28 @@
         .content-section.active {
             display: block;
         }
+
+        /* 1. 設定所有連結（包含未點擊、已點擊）的基礎樣式 */
+        a {
+            text-decoration: none !important; /* 移除所有藍色底線 */
+        }
+
+        /* 2. 一般狀態：還沒有點擊過的超連結顏色（例如：質感深藍色） */
+        a:link {
+            color: #0366d6 !important; 
+        }
+
+        /* 3. 已瀏覽狀態：點擊過後的超連結顏色（例如：經典的暗紫色，讓使用者知道看過了） */
+        a:visited {
+            color: #6f42c1 !important; 
+        }
+
+        /* 4. 滑鼠游標移上去時的顏色（例如：變深灰色，並讓底線短暫出現作為提示，不想要底線也可以把 underline 拿掉） */
+        a:hover {
+            color: #24292e !important;
+            text-decoration: underline !important; /* 滑鼠移上去時顯示底線，增加互動感 */
+        }
+
     </style>
 </head>
 <body>
@@ -117,6 +149,7 @@
         <aside class="sidebar">
             <!-- 圓形大頭貼 -->
             <div class="avatar"></div>
+            <div class="user-name">你的名字</div>
             
             <!-- 按鈕清單 -->
             <div class="menu-list">
@@ -134,8 +167,8 @@
             <section id="about" class="content-section active">
                 <h2 class="fw-bold mb-3">👨‍💻 關於我</h2>
                 <hr class="mb-4">
-                <p class="lead">你好！我是 [你的名字]。</p>
-                <p>這裡可以寫你的簡短自我介紹。例如：畢業於某某科系，專長是 Python 後端開發與機器學習模型訓練。熱衷於將 AI 技術整合進 Web 系統中，解決實際生活中的問題...</p>
+                <p class="lead">你好！我是 。</p>
+                <p>畢業於靜宜大學資訊工程學系，專長是 Python 後端開發與機器學習模型訓練。熱衷於將 AI 技術整合進 Web 系統中，解決實際生活中的問題...</p>
             </section>
 
             <!-- 內容二：Django 專題 -->
@@ -146,7 +179,7 @@
                 <!-- YouTube 響應式影片播放器 -->
                 <div class="ratio ratio-16x9 mb-4 shadow-sm" style="border-radius: 8px; overflow: hidden;">
                     <!-- ⚠️ 記得把 '你的影片ID' 換掉 -->
-                    <iframe src="https://youtu.be/4LzGC4gMEkE" title="專題展示影片" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4LzGC4gMEkE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
                 <!-- 精準時間軸引導按鈕 -->
@@ -159,10 +192,10 @@
 
                 <!-- 相關連結 -->
                 <div class="mt-3">
-                    🔗 <a href="你的Render網址" target="_blank" class="fw-bold text-decoration-none">點此親自體驗線上網站</a>
+                    <!--🔗 <a href="你的Render網址" target="_blank" class="fw-bold text-decoration-none">點此親自體驗線上網站</a>
                     <span class="text-muted small ms-2">(⚠️ 免費主機初次開啟需等待約 1 分鐘)</span>
-                    <br>
-                    💻 <a href="你的GitHub專案網址" target="_blank" class="text-decoration-none text-secondary">瀏覽專案原始碼 (GitHub)</a>
+                    <br>-->
+                    💻 <a href="https://github.com/chienyutsai/Django_project-Stock-Management" target="_blank" class="text-decoration-none text-secondary">瀏覽專案原始碼 (GitHub)</a>
                 </div>
             </section>
 
@@ -182,9 +215,9 @@
             <section id="contact" class="content-section">
                 <h2 class="fw-bold mb-3">✉️ 聯絡方式</h2>
                 <hr class="mb-4">
-                <p>📧 <strong>Email：</strong> your-email@example.com</p>
-                <p>🔗 <strong>GitHub：</strong> <a href="https://github.com" target="_blank">://github.com</a></p>
-                <p>💼 <strong>LinkedIn：</strong> <a href="#" target="_blank">你的領英連結</a></p>
+                <p>📧 <strong>Email：</strong>chienyutsai730@gmail.com</p>
+                <p>🔗 <strong>GitHub：</strong> <a href="https://github.com/chienyutsai" target="_blank">https://github.com/chienyutsai</a></p>
+                <!--<p>💼 <strong>LinkedIn：</strong> <a href="#" target="_blank">link</a></p>-->
             </section>
 
         </main>
