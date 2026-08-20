@@ -34,9 +34,9 @@
         /* 3. 左半邊：側邊欄 */
         .sidebar {
             width: 225px; /* 固定側邊欄寬度 */
-            min-width: 225px; /* 👇 加上這行：強制最低寬度 */
-            flex-shrink: 0;   /* 👇 加上這行：嚴禁被右邊的內容擠壓縮小 */
-            background-color: #f8f9fa; /* 稍微帶點淺灰，與右邊純白做出區隔 */
+            min-width: 225px; /* 強制最低寬度 */
+            flex-shrink: 0;   /* 嚴禁被右邊的內容擠壓縮小 */
+            background-color: #f8f9fa; /* 稍微帶點淺灰，與純白做出區隔 */
             border-right: 1px solid #e9ecef; /* 分隔線 */
             padding: 30px 0;
             display: flex;
@@ -51,7 +51,7 @@
             border-radius: 50%; /* 變成正圓形 */
             background-color: #cbd5e1; /* 沒放圖片前的預設灰色 */
             margin-bottom: 20px;
-            background-image: url('你的大頭貼網址.jpg'); /* 之後可以換成你的照片 */
+            background-image: url('大頭貼網址.jpg'); /* 之後更換照片 */
             background-size: cover;
             background-position: center;
             border: 3px solid #ffffff;
@@ -64,7 +64,7 @@
             font-weight: 600;        /* 稍微加粗，看起來比較像標題 */
             color: #212529;          /* 深灰色字體 */
             margin-top: 0;           /* 清除上方預設間距 */
-            margin-bottom: 20px;     /* 👈 調整這裡：控制名字與下方「第一個按鈕」的距離 */
+            margin-bottom: 20px;     /* 控制名字與下方按鈕的距離 */
             text-align: center;      /* 文字置中 */
         }
 
@@ -122,23 +122,35 @@
             text-decoration: none !important; /* 移除所有藍色底線 */
         }
 
-        /* 2. 一般狀態：還沒有點擊過的超連結顏色（例如：質感深藍色） */
+        /* 2. 一般狀態：還沒有點擊過的超連結顏色 */
         a:link {
             color: #0366d6 !important; 
         }
 
-        /* 3. 已瀏覽狀態：點擊過後的超連結顏色（例如：經典的暗紫色，讓使用者知道看過了） */
+        /* 3. 已瀏覽狀態：點擊過後的超連結顏色 */
         a:visited {
             color: #6f42c1 !important; 
         }
 
-        /* 4. 滑鼠游標移上去時的顏色（例如：變深灰色，並讓底線短暫出現作為提示，不想要底線也可以把 underline 拿掉） */
+        /* 4. 滑鼠游標移上去時的顏色 */
         a:hover {
             color: #24292e !important;
             text-decoration: underline !important; /* 滑鼠移上去時顯示底線，增加互動感 */
         }
 
-        /* 5. 手機版響應式設計 (RWD) */
+        /* 5. 影片播放器通用設定 (確保電腦版不縮水且置中) */
+        #project1 .ratio {
+            max-width: 750px; /* 設定電腦版的最大寬度 */
+            aspect-ratio: 16 / 9;
+            margin: 0 auto;   /* 讓播放器在右邊區塊完美置中 */
+        }
+        
+        #project1 .ratio iframe {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* 6. 手機版響應式設計 (RWD) */
         @media (max-width: 768px) {
             /* 1. 外層容器：取消固定高度，改為由上而下的垂直排列 */
             .resume-container {
@@ -197,7 +209,7 @@
                 margin: 0 auto !important; /* 讓左右兩側邊距自動平均，達到完美置中 */
                 width: 100% !important;    /* 寬度剛好填滿白色區塊的內側 */
                 max-width: 560px;          /* 限制最大寬度，避免在稍微大一點的手機或平板上變形 */
-                border-radius: 8px !important; /* 恢復原本好看的圓角 */
+                border-radius: 8px !important; 
             }
         }
     </style>
@@ -211,12 +223,12 @@
         <aside class="sidebar">
             <!-- 圓形大頭貼 -->
             <div class="avatar"></div>
-            <div class="user-name">你的名字</div>
+            <div class="user-name">蔡謙雩</div>
             
             <!-- 按鈕清單 -->
             <div class="menu-list">
                 <button class="menu-btn active" onclick="switchContent('about')">👨‍💻 關於我</button>
-                <button class="menu-btn" onclick="switchContent('project1')">🤖 專題</button>
+                <button class="menu-btn" onclick="switchContent('project1')">📈 作品內容</button>
                 <button class="menu-btn" onclick="switchContent('skills')">🛠️ 核心技能</button>
                 <button class="menu-btn" onclick="switchContent('contact')">✉️ 聯絡方式</button>
             </div>
@@ -229,7 +241,7 @@
             <section id="about" class="content-section active">
                 <h2 class="fw-bold mb-3">👨‍💻 關於我</h2>
                 <hr class="mb-4">
-                <p class="lead">你好！我是 。</p>
+                <p class="lead">你好！我是蔡謙雩。</p>
                 <p>畢業於靜宜大學資訊工程學系，專長是 Python 後端開發與機器學習模型訓練。熱衷於將 AI 技術整合進 Web 系統中，解決實際生活中的問題...</p>
             </section>
 
@@ -245,9 +257,6 @@
 
                 <!-- 相關連結 -->
                 <div class="mt-3">
-                    <!--🔗 <a href="你的Render網址" target="_blank" class="fw-bold text-decoration-none">點此親自體驗線上網站</a>
-                    <span class="text-muted small ms-2">(⚠️ 免費主機初次開啟需等待約 1 分鐘)</span>
-                    <br>-->
                     💻 <a href="https://github.com/chienyutsai/Django_project-Stock-Management" target="_blank" class="text-decoration-none text-secondary">瀏覽專案原始碼 (GitHub)</a>
                 </div>
             </section>
