@@ -51,7 +51,7 @@
             border-radius: 50%; /* 變成正圓形 */
             background-color: #cbd5e1; /* 沒放圖片前的預設灰色 */
             margin-bottom: 20px;
-            background-image: url('大頭貼網址.jpg'); /* 之後更換照片 */
+            background-image: url('https://avatars.githubusercontent.com/u/192790533?s=400&v=4.png'); /* 之後更換照片 */
             background-size: cover;
             background-position: center;
             border: 3px solid #ffffff;
@@ -229,7 +229,7 @@
             <div class="menu-list">
                 <button class="menu-btn active" onclick="switchContent('about')">👨‍💻 關於我</button>
                 <button class="menu-btn" onclick="switchContent('project1')">📈 作品內容</button>
-                <button class="menu-btn" onclick="switchContent('skills')">🛠️ 核心技能</button>
+                <button class="menu-btn" onclick="switchContent('skills')">🛠️ 知識技能</button>
                 <button class="menu-btn" onclick="switchContent('contact')">✉️ 聯絡方式</button>
             </div>
         </aside>
@@ -242,17 +242,18 @@
                 <h2 class="fw-bold mb-3">👨‍💻 關於我</h2>
                 <hr class="mb-4">
                 <p class="lead">你好！我是蔡謙雩。</p>
-                <p>畢業於靜宜大學資訊工程學系，專長是 Python 後端開發與機器學習模型訓練。熱衷於將 AI 技術整合進 Web 系統中，解決實際生活中的問題...</p>
+                <p>畢業於靜宜大學資訊工程學系。<strong>樂於學習</strong>新技能，也常利用閒暇之餘探索任何感興趣的領域，如程式語言、遊戲模組製作、外語等。喜歡</p>
             </section>
 
             <!-- 內容二：Django 專題 -->
             <section id="project1" class="content-section">
-                <h2 class="fw-bold mb-3">📈 畢業專題：股票管理分析系統</h2>
-                <p class="text-muted mb-4">基於 Django 框架建構的全端金融平台，整合多來源即時股價、互動式 K 線圖、新聞與情緒分析與社群討論機制。</p>
+                <h2 class="fw-bold mb-3">📈 作品內容</h2>
+                <p class="lead">畢業專題：股票管理分析系統</p>
+                <p class="text-muted mb-4">基於 Django 框架建構的全端股票管理系統，整合多來源即時股價、互動式 K 線圖、新聞與情緒分析與社群討論機制。</p>
                 
                 <!-- YouTube 響應式影片播放器 -->
                 <div class="ratio ratio-16x9 mb-4 shadow-sm" style="border-radius: 8px; overflow: hidden;">
-                    <iframe src="https://www.youtube.com/embed/AbUljqvlpTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/AbUljqvlpTE" loading="lazy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
                 <!-- 相關連結 -->
@@ -263,14 +264,19 @@
 
             <!-- 內容三：核心技能 -->
             <section id="skills" class="content-section">
-                <h2 class="fw-bold mb-3">🛠️ 核心技能</h2>
+                <h2 class="fw-bold mb-3">🛠️ 知識技能</h2>
                 <hr class="mb-4">
-                <h4 class="fw-bold">全端與後端開發</h4>
-                <p>Python, Django (MVT 架構 / ORM), RESTful API 設計, HTML5, CSS3, JavaScript, Bootstrap (響應式設計)</p>
-                <h4 class="fw-bold mt-3">資料庫與快取機制</h4>
-                <p>SQLite, MySQL, 關聯式資料庫設計 (ERD), 股價快照快取設計 (Snapshot Caching)</p>
+                <p>目前學習過與正在接觸、探索的知識技能有：</p>
+                <h4 class="fw-bold">網頁開發</h4>
+                <p>Python, Django, HTML, CSS, JavaScript, Bootstrap</p>
+                <h4 class="fw-bold mt-3">資料庫</h4>
+                <p>MySQL, 關聯式資料庫設計(ERD)</p>
                 <h4 class="fw-bold mt-3">數據分析與自然語言處理 (Data & NLP)</h4>
-                <p>Plotly.js / Chart.js (動態圖表與K線圖), Pandas, API 串接 (FinMind / Twelve Data / Finnhub), jieba / opencc (新聞中文分詞與情緒分析)</p>
+                <p>Plotly.js / Chart.js (動態圖表與K線圖), Pandas, API 串接, Opencc (關鍵字情緒分析)</p>
+                <h4 class="fw-bold mt-3">開發工具</h4>
+                <p>Git, GitHub, VS Code</p>
+                <h4 class="fw-bold mt-3">持續學習中</h4>
+                <p>C#(遊戲模組製作)、資料爬蟲(Python requests)</p>
             </section>
 
             <!-- 內容四：聯絡方式 -->
@@ -279,7 +285,6 @@
                 <hr class="mb-4">
                 <p>📧 <strong>Email：</strong>chienyutsai730@gmail.com</p>
                 <p>🔗 <strong>GitHub：</strong> <a href="https://github.com/chienyutsai" target="_blank">https://github.com/chienyutsai</a></p>
-                <!--<p>💼 <strong>LinkedIn：</strong> <a href="#" target="_blank">link</a></p>-->
             </section>
 
         </main>
