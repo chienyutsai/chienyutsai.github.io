@@ -26,8 +26,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.06);
             width: 100%;
             max-width: 1000px; /* 最大寬度控制 */
-            height: 750px; /* 固定高度，讓整體排版像精美的軟體介面 */
-            display: flex; /* 讓左右兩邊並排 */
+            height: 750px; /* 固定高度 */
+            display: flex; 
             overflow: hidden; /* 防止內部元件超出圓角 */
         }
 
@@ -36,8 +36,8 @@
             width: 225px; /* 固定側邊欄寬度 */
             min-width: 225px; /* 強制最低寬度 */
             flex-shrink: 0;   /* 嚴禁被右邊的內容擠壓縮小 */
-            background-color: #f8f9fa; /* 稍微帶點淺灰，與純白做出區隔 */
-            border-right: 1px solid #e9ecef; /* 分隔線 */
+            background-color: #f8f9fa; 
+            border-right: 1px solid #e9ecef; 
             padding: 30px 0;
             display: flex;
             flex-direction: column;
@@ -48,10 +48,10 @@
         .avatar {
             width: 100px;
             height: 100px;
-            border-radius: 50%; /* 變成正圓形 */
-            background-color: #cbd5e1; /* 沒放圖片前的預設灰色 */
+            border-radius: 50%; 
+            background-color: #cbd5e1; /* 沒放圖片前預設灰色 */
             margin-bottom: 20px;
-            background-image: url('https://avatars.githubusercontent.com/u/192790533?s=400&v=4.png'); /* 之後更換照片 */
+            background-image: url('https://avatars.githubusercontent.com/u/192790533?s=400&v=4.png'); 
             background-size: cover;
             background-position: center;
             border: 3px solid #ffffff;
@@ -60,12 +60,12 @@
 
         /* 名字的字體與上下間距 */
         .user-name {
-            font-size: 1.15rem;      /* 字體大小 */
-            font-weight: 600;        /* 稍微加粗，看起來比較像標題 */
-            color: #212529;          /* 深灰色字體 */
-            margin-top: 0;           /* 清除上方預設間距 */
-            margin-bottom: 20px;     /* 控制名字與下方按鈕的距離 */
-            text-align: center;      /* 文字置中 */
+            font-size: 1.15rem;      
+            font-weight: 600;        
+            color: #212529;    
+            margin-top: 0;           
+            margin-bottom: 20px;   /* 控制名字與下方按鈕的距離 */
+            text-align: center;      
         }
 
         /* 左邊直立式按鈕清單 */
@@ -103,7 +103,7 @@
 
         /* 4. 右半邊：內容顯示區塊 */
         .content-area {
-            flex-grow: 1; /* 自動填滿剩餘寬度 */
+            flex-grow: 1; 
             padding: 40px;
             overflow-y: auto; /* 如果內容太多，右邊會自己出現滾動條 */
             background-color: #ffffff;
@@ -135,14 +135,14 @@
         /* 4. 滑鼠游標移上去時的顏色 */
         a:hover {
             color: #24292e !important;
-            text-decoration: underline !important; /* 滑鼠移上去時顯示底線，增加互動感 */
+            text-decoration: underline !important; /* 滑鼠移上去時顯示底線 */
         }
 
-        /* 5. 影片播放器通用設定 (確保電腦版不縮水且置中) */
+        /* 5. 影片播放器通用設定 */
         #project1 .ratio {
             max-width: 750px; /* 設定電腦版的最大寬度 */
             aspect-ratio: 16 / 9;
-            margin: 0 auto;   /* 讓播放器在右邊區塊完美置中 */
+            margin: 0 auto;   
         }
         
         #project1 .ratio iframe {
@@ -174,22 +174,22 @@
                 margin-bottom: 15px;
             }
 
-            /* 3. 選單清單：實作您構想的 2x2 網格與十字分隔線 */
+            /* 3. 選單清單 */
             .menu-list {
                 display: grid;
-                grid-template-columns: 1fr 1fr; /* 切成左右均等的兩欄 */
-                background-color: #e9ecef; /* 利用灰色底色來當作分隔線 */
-                gap: 1px; /* 讓按鈕之間產生 1px 的縫隙，透出底下的灰色變成格線 */
+                grid-template-columns: 1fr 1fr;
+                background-color: #e9ecef;
+                gap: 1px; 
                 border-top: 1px solid #e9ecef;
                 border-bottom: 1px solid #e9ecef;
             }
 
-            /* 4. 按鈕樣式調整：文字置中、移除原本左側的粗線 */
+            /* 4. 按鈕樣式調整 */
             .menu-btn {
-                background-color: #f8f9fa; /* 蓋上原本的底色 */
-                justify-content: center;   /* 讓 Icon 和文字水平置中 */
+                background-color: #f8f9fa; 
+                justify-content: center;  
                 padding: 15px 10px;
-                border-left: none !important; /* 手機版不需要左側粗線 */
+                border-left: none !important; 
             }
 
             /* 手機版按鈕選中時：單純用加深底色來提示 */
@@ -206,8 +206,8 @@
 
             /* 6. 手機版影片播放器優化 (置中與寬度自適應) */
             #project1 .ratio {
-                margin: 0 auto !important; /* 讓左右兩側邊距自動平均，達到完美置中 */
-                width: 100% !important;    /* 寬度剛好填滿白色區塊的內側 */
+                margin: 0 auto !important; 
+                width: 100% !important;    
                 max-width: 560px;          /* 限制最大寬度，避免在稍微大一點的手機或平板上變形 */
                 border-radius: 8px !important; 
             }
@@ -240,19 +240,63 @@
             <!-- 內容一：關於我 -->
             <section id="about" class="content-section active">
                 <h2 class="fw-bold mb-3">👨‍💻 關於我</h2>
-                <hr class="mb-4">
+                <hr style="margin-bottom: 40px; border-color: #2e2f31;">
                 <p class="lead">你好！我是蔡謙雩。</p>
-                <p>畢業於靜宜大學資訊工程學系。<strong>樂於學習</strong>新技能，常利用閒暇之餘探索任何感興趣的領域，如程式語言、遊戲模組製作、外語等。精進知識的同時，也能夠提升自己的思考和邏輯能力。喜歡<strong>動手實作</strong>，並享受解開問題、解決錯誤時所帶來的成就感！</p>
+                <p>畢業於靜宜大學資訊工程學系。<strong>樂於學習</strong>新技能，常利用閒暇之餘探索任何感興趣的領域，如程式語言、遊戲模組製作、外語等。精進知識的同時，也能夠提升自己的思考和邏輯能力。喜歡<strong>動手實作</strong>，並享受解開問題和錯誤，茅塞頓開的那刻所帶來的愉悅與成就感！</p>
+                
+                <hr style="margin: 65px 0; border-color: #2e2f31;">
+
+                <!-- 近期目標 -->
+                <h5 class="fw-bold mb-3">🎯 個人近期目標</h5>
+                
+                <div class="row g-3 mb-4">
+
+                    <!-- 目標一-->
+                    <div class="col-6 col-md-4">
+                        <div class="card border-0 shadow-sm" style="background-color: #f8f9fa; border-radius: 12px; aspect-ratio: 1 / 1; overflow: hidden;">
+                            <div class="card-body d-flex flex-column align-items-center justify-content-center text-center p-2 p-sm-3">
+                                <div class="fs-1 mb-2">🎮</div> 
+                                <h6 class="fw-bold mb-1 mb-sm-2" style="font-size: 0.9rem;">網頁互動遊戲</h6>
+                                <p class="text-muted mb-0" style="font-size: 0.75rem; line-height: 1.4;">
+                                    製作一個輕鬆娛樂向的網頁互動小品遊戲！
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 目標二 -->
+                    <div class="col-6 col-md-4">
+                        <!-- 鎖定正方形比例不變形 -->
+                        <div class="card border-0 shadow-sm" style="background-color: #f8f9fa; border-radius: 12px; aspect-ratio: 1 / 1; overflow: hidden;">
+                            <!-- 手機版用 p-2 減少留白，電腦版用 p-sm-3 恢復留白 -->
+                            <div class="card-body d-flex flex-column align-items-center justify-content-center text-center p-2 p-sm-3">
+                                <div class="fs-1 mb-2">🏡</div>
+                                <h6 class="fw-bold mb-1 mb-sm-2" style="font-size: 0.9rem;">遊戲模組製作</h6>
+                                <p class="text-muted mb-0" style="font-size: 0.75rem; line-height: 1.4;">
+                                    精進 C# 與 JSON，努力將模組功能、事件劇情完成！
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </section>
 
-            <!-- 內容二：Django 專題 -->
+            <!-- 內容二：作品內容 -->
             <section id="project1" class="content-section">
                 <h2 class="fw-bold mb-3">📈 作品內容</h2>
+                <hr class="mb-4">
                 <h5>畢業專題：股票管理分析系統</h5>
-                <p class="text-muted mb-4">基於 Django 框架建構的全端股票管理系統，整合多來源即時股價、互動式 K 線圖、新聞與情緒分析與社群討論機制。</p>
+                <p class="text-muted mb-4" style="text-align: justify;">基於 Django 框架建構的全端股票管理系統，整合多來源即時股價、互動式 K 線圖、新聞與情緒分析與社群討論機制。</p>
+                <p class="mb-4">
+                    <!-- 加上 text-wrap 允許換行，text-start 讓多行文字靠左對齊，lh-base 稍微增加行距 -->
+                    <span class="badge bg-secondary text-wrap text-start lh-base" style="font-size: 0.9rem;">
+                        主要負責：網頁架構規劃與製作、使用者互動功能實作、資料串接。
+                    </span>
+                </p>
                 
                 <!-- YouTube 響應式影片播放器 -->
-                <div class="ratio ratio-16x9 mb-4 shadow-sm" style="border-radius: 8px; overflow: hidden;">
+                <div class="ratio ratio-16x9 mb-3 shadow-sm" style="border-radius: 8px; overflow: hidden;">
                     <iframe src="https://www.youtube.com/embed/AbUljqvlpTE" loading="lazy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
@@ -262,7 +306,7 @@
                 </div>
             </section>
 
-            <!-- 內容三：核心技能 -->
+            <!-- 內容三：知識技能 -->
             <section id="skills" class="content-section">
                 <h2 class="fw-bold mb-3">🛠️ 知識技能</h2>
                 <hr class="mb-4">
@@ -274,7 +318,7 @@
                 <h5 class="fw-bold mt-3">數據分析與自然語言處理 (Data & NLP)</h5>
                 <p>Plotly.js / Chart.js (動態圖表與K線圖), Pandas, API 串接, Opencc (關鍵字情緒分析)</p>
                 <h5 class="fw-bold mt-3">開發工具</h5>
-                <p>Git, GitHub, VS Code</p>
+                <p>Git, GitHub, VS Code, 熟悉使用 AI 工具進行輔助開發</p>
                 <h5 class="fw-bold mt-3">持續學習中</h5>
                 <p>C#(遊戲模組製作)、資料爬蟲(Python requests)</p>
             </section>
